@@ -1,0 +1,27 @@
+{
+  "name": "kidsHike",
+  "version": "1.0.0",
+  "description": "This app provides info and maps on family-friendly hikes in Chicago and surrounding areas.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlescollings/kidsHike.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/charlescollings/kidsHike/issues"
+  },
+  "homepage": "https://github.com/charlescollings/kidsHike#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.8"
+  }
+}
