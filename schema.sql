@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS kidsHike_db;
+
+CREATE DATABASE kidsHike_db;

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kids Hike</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <style>
+            /* Set the size of the div element that contains the map */
+            #map {
+              height: 400px;  /* The height is 400 pixels */
+              width: 100%;  /* The width is the width of the web page */
+             }
+          </style>
+
+  </head>
+
+  <body>
+    <div class="row">
+        <div class="col-md-6 offset-md-3"> 
+                <h1>Kids Hike</h1>
+        </div>
+    </div>
+    
+    <div class="container">
+            <div class="row">
+                Hikers
+                <div class="col" id="hikerDisplay">
+                </div>
+            </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 offset-md-3">    
+            <form id="submitRSVP">
+                <div class="form-group">
+                  <label for="burger">RSVP and click submit</label>
+                  <input placeholder="Hiker Name" type="text" class="form-control" id="hikerName">
+                  <br />
+                  <input placeholder="How many hikers?" type="text" class="form-control" id="numberOfHikers">
+                  <br />
+                  <input placeholder="Email?" type="text" class="form-control" id="hikerEmail">
+                  <br />
+                  <button type="submit" class="btn btn-success submit">Submit RSVP</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Custom Script -->
+    <script src="js/main.js" type="text/javascript"></script>
+
+    <!--The div element for the map -->
+    <div id="map"></div>
+
+    <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      var uluru = {lat: 41.8266548, lng: -87.93220009999999};
+      var locations = [
+      ['Fullersburg Woods', 41.8266548, -87.93220009999999, 4],
+      ['Little Red School House Nature Center', 41.7089669, -87.87716069999999]
+    ];
+        var marker;
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 4, center: uluru});
+      // The marker, positioned at Uluru
+      for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+      // var marker = new google.maps.Marker({position: uluru, map: map});
+    }
+    </script>
+    
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJyxmuoUkTYqiOo5Kqf68m1oESPjssTk&callback=initMap">
+    </script>
+  
+  </body>
+  
+  </html>
+  
