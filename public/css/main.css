@@ -214,7 +214,7 @@ button,
 
 /* Header */
 body {
-	padding-top: 6em;
+	padding-top: 5em;
 }
 #header {
 	-moz-align-items: center;
@@ -223,9 +223,9 @@ body {
 	align-items: center;
 	background: #fff;
 	cursor: default;
-	height: 8em;
+	height: 6em;
 	left: 0;
-	line-height: 6em;
+	line-height: 5em;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -239,22 +239,24 @@ body {
 #header .logo {
 	color: #3f3931;
 	font-family: "Pacifico", cursive;
-	font-size: 2.5em;
+	font-size: 2em;
 	letter-spacing: 2px;
 	margin-top: -5px;
 	text-decoration: none;
 	padding:0px 0px 40px 0px;
-
+	text-align: center;
 }
+
 .sub-header {
 	color: #3f3931;
 	font-family: "Montserrat", sans-serif;
-	font-size:24px;
-    padding: 50px;
+	font-size:18px;
+    padding: 35px;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: 10001;
+	text-align: center;
 }
 @media screen and (max-width: 1280px) {
     .sub-header {
@@ -282,3 +284,6 @@ body {
 #footer .icon {
 	color: #3f3931;
 }
+
+
+
