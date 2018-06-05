@@ -1,100 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Kids Hike</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		
+		
+	</head>
+	<body>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Kids Hike</title>
-    <!-- Latest compiled and minified CSS & JS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css" media="screen" title="no title">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+		<!-- Header -->
+			<header id="header">
+				<div class="logo">Kids Hike</div>
+			<div class="sub-header">The best hikes for kids and families in the Chicagoland area</div>
+		</header>
+		<!-- Top Kids Hikes Section -->
+			<section id="three" class="wrapper">
+				<div class="inner flex flex-3">
+					<div class="flex-item box">
+						<div class="content">
+							<ul class="actions">
+								<div class="subsets">Best Kid's Hikes</div>
+							</ul>
+							<p class="subset-text">Explore the best kid-friendly hikes in the Chicagoland area.</p>
+							   <div class="hikes-text">
+						       <span class="icon fas fa-tree"></span>&nbsp; Waterfall Glen Forest Preserve 
+									<div class="trail-sub-text"><a href="#">View on map</a>
+										<a target="_blank" href="http://www.dupageforest.org/places-to-go/forest-preserves/waterfall-glen">Get more info</a>
+										<a target="_blank" href="https://www.dupageforest.org/hubfs/Places-to-Go/Documents/Forest-Preserves/Waterfall-Glen-Trails-Guide-2017.pdf?t=1527873634916">See trail</a><br>
+									</div>
+							
+						</div>
+					</div>
+				</div>
 
-    <style>
-            /* Set the size of the div element that contains the map */
-            #map {
-              height: 400px;  /* The height is 400 pixels */
-              width: 100%;  /* The width is the width of the web page */
-             }
-          </style>
+		<!-- Map, Hikes, Forest Preserves -->
+					<div class="flex-item">
+						<div class="content">
+							<ul class="actions">
+									<div class="forest-preserve">Choose your map view</a>
+									<div class="forest-preserve-sub">Kids Hikes | Forest Preserves</a>
+							</ul>
+						</div>
+							<section id="map">Map</section>
+							
 
-  </head>
+		<!-- Sign Up For A Group Hike -->
+					</div>
+					<div class="flex-item box">
+						<div class="content">
+							<ul class="actions">
+								<div class="subsets">Next Kid's Hike</a>
+							</ul>
+							<p class="subset-text">Join us on our next kid's hike!</p>
+							<p class="smaller-text">Location:</p>
+							<p class="smaller-text">Date:</p>
+							<p class="smaller-text">Time:</p>
 
-  <body>
-    <div class="row">
-        <div class="col-md-6 offset-md-3"> 
-                <h1>Kids Hike</h1>
-        </div>
-    </div>
-    
-    <div class="container">
-            <div class="row">
-                Hikers
-                <div class="col" id="hikerDisplay">
-                </div>
-            </div>
-    </div>
+						</div>
+                        <!-- RSVP Form -->
+						<section id="contact-form">
+							<div class="container-form">
+							  <form id="submitRSVP">
+								<input type="text" id="hikerName" placeholder="Name" required>
+								<input type="number" id="numberOfHikers" placeholder="Number of Hikers" required>
+							    <input type="email" id="hikerEmail" placeholder="Email" required>
+					    	    <button class="submit-button" type="submit" placeholder="Submit">Submit</button>
+							  </form>
+						    </div>
+						</section>
+					</div>
+				</div>
+			</section>
 
-    <div class="row">
-        <div class="col-md-6 offset-md-3">    
-            <form id="submitRSVP">
-                <div class="form-group">
-                  <label for="burger">RSVP and click submit</label>
-                  <input placeholder="Hiker Name" type="text" class="form-control" id="hikerName">
-                  <br />
-                  <input placeholder="How many hikers?" type="text" class="form-control" id="numberOfHikers">
-                  <br />
-                  <input placeholder="Email?" type="text" class="form-control" id="hikerEmail">
-                  <br />
-                  <button type="submit" class="btn btn-success submit">Submit RSVP</button>
-                </div>
-            </form>
-        </div>
-    </div>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="actions">
+						<span class="fas fa-envelope-open"></span><a href="#"></a> Contact Us  </a> &emsp; &emsp;
+						<span class="fas fa-images"></span><a href="#"></a> Past Hikes</a>
+					</ul>
+				</div>
+			</footer>
 
 
-    <!-- Custom Script -->
-    <script src="js/main.js" type="text/javascript"></script>
+        <!-- Scripts -->
+			
+			<script async defer
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJyxmuoUkTYqiOo5Kqf68m1oESPjssTk&callback=initMap">
+			</script>
+			  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+			<script src="/js/main.js"></script>
+			
 
-    <!--The div element for the map -->
-    <div id="map"></div>
+			
 
-    <script>
-    // Initialize and add the map
-    function initMap() {
-      // The location of Uluru
-      var uluru = {lat: 41.8266548, lng: -87.93220009999999};
-      var locations = [
-      ['Fullersburg Woods', 41.8266548, -87.93220009999999, 4],
-      ['Little Red School House Nature Center', 41.7089669, -87.87716069999999]
-    ];
-        var marker;
-      // The map, centered at Uluru
-      var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 4, center: uluru});
-      // The marker, positioned at Uluru
-      for (i = 0; i < locations.length; i++) {  
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-        return function() {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-      // var marker = new google.maps.Marker({position: uluru, map: map});
-    }
-    </script>
-    
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJyxmuoUkTYqiOo5Kqf68m1oESPjssTk&callback=initMap">
-    </script>
-  
-  </body>
-  
-  </html>
-  
+	</body>
+</html>
