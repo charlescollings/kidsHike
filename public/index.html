@@ -25,15 +25,29 @@
 							<ul class="actions">
 								<div class="subsets">Best Kid's Hikes</div>
 							</ul>
-							<p class="subset-text">Explore the best kid-friendly hikes in the Chicagoland area.</p>
-							   <div class="hikes-text">
-						       <span class="icon fas fa-tree"></span>&nbsp; Waterfall Glen Forest Preserve 
-									<div class="trail-sub-text"><a href="#">View on map</a>
-										<a target="_blank" href="http://www.dupageforest.org/places-to-go/forest-preserves/waterfall-glen">Get more info</a>
-										<a target="_blank" href="https://www.dupageforest.org/hubfs/Places-to-Go/Documents/Forest-Preserves/Waterfall-Glen-Trails-Guide-2017.pdf?t=1527873634916">See trail</a><br>
-									</div>
-							
-						</div>
+                            <p class="subset-text">Explore the best kid-friendly hikes in the Chicagoland area.</p>
+                            
+                                <!-- populate this list by building divs using the locations in 'locations' array from main.js (instead of hard coding them) -->
+                                  
+                            <div id="hikes-text"></div> 
+						<!--	<div class="hikes-text">
+                                    <span class="icon fas fa-tree"></span>&nbsp; Waterfall Glen Forest Preserve 
+                                    <div class="trail-sub-text">
+                                        <a href="javascript:showHikeMarker()">View on map</a>
+                                        <! when user clicks 'view on map' run function to clear out map and then re-populate map with only tjis hike location marker 
+                                        <a target="_blank" href="http://www.dupageforest.org/places-to-go/forest-preserves/waterfall-glen">Get more info</a>
+                                        <a target="_blank" href="https://www.dupageforest.org/hubfs/Places-to-Go/Documents/Forest-Preserves/Waterfall-Glen-Trails-Guide-2017.pdf?t=1527873634916">See trail map</a><br>
+                                    </div>
+                                </div>
+                                <div class="hikes-text">
+                                    <span class="icon fas fa-tree"></span>&nbsp; Morton Arboretum 
+                                    <div class="trail-sub-text">
+                                        <a href="javascript:showHikeMarker()">View on map</a>
+                                        <! when user clicks 'view on map' run function to clear out map and then re-populate map with only tjis hike location marker 
+                                        <a target="_blank" href="http://www.mortonarb.org/">Get more info</a>
+                                        <a target="_blank" href="http://www.mortonarb.org/files/16MRK_HikingMap_112116_OPTIM.pdf">See trail map</a><br>
+                                    </div>
+                                </div> -->
 					</div>
 				</div>
 
@@ -91,11 +105,15 @@
 					
 			<script src="https://code.jquery.com/jquery-3.3.1.min.js"
 			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-			  crossorigin="anonymous"></script>
+              crossorigin="anonymous">
+            </script>
 			<script src="/js/main.js"></script>
 			<script async defer 
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJyxmuoUkTYqiOo5Kqf68m1oESPjssTk&callback=initMap">
-			</script>
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJyxmuoUkTYqiOo5Kqf68m1oESPjssTk&callback=initMap">
+            </script>
+            <!-- <script async defer 
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlJyxmuoUkTYqiOo5Kqf68m1oESPjssTk&callback=showHikeMarker">
+            </script> -->
 			
 	</body>
 </html>
