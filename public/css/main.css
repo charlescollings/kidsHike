@@ -3,13 +3,29 @@
 
 .smaller-text {
 	font-weight: bold;
-
+    font-family: "Montserrat", sans-serif;
+}
+.ghost-link {
+	color: #3f3931;
+	text-decoration: none;
+	margin-right: 12px;
+}
+#kidsHikesMap, #forestPresMap {
+	color: #3f3931;
+	text-decoration: none;
+	margin-right: 12px;
+	text-align: center;
+}
+.hikes-text-info {
+	margin-bottom: 14px;
+}
+.dates {
+	color: #3f3931;
 }
 /* Map */
 #map {
-    height: 150px;
-	width: 40%;
-	padding: 100px;
+    height: 120px;
+	padding: 116px;
     border: 2px solid #6d7973;
 	border-radius: 20px;
 }
@@ -19,7 +35,6 @@
 	text-align: center;
 	color: #3f3931;
 	font-size: 20px;
-	text-align: center;
 	font-family: "Montserrat", sans-serif;
 }
 .forest-preserve-sub {
@@ -27,6 +42,7 @@
 	font-size: 14px;
 	padding: 5px 0px 10px 0px;
 	font-family: "Montserrat", sans-serif;
+	text-align: center;
 }
 
 /* Top Kids Hike Section */
@@ -103,7 +119,7 @@ body {
 /* Three text Boxes */
 .inner {
 	margin: 0 auto;
-	max-width: 65em;
+	max-width: 75em;
 }
 @media screen and (max-width: 1280px) {
     .inner {
@@ -135,7 +151,7 @@ body, input, select, textarea {
 	margin-bottom: 2em;
 	overflow-y: scroll;
 	height:450px;	
-	width: 500px;
+
 }
 
 .box .content {
@@ -229,9 +245,7 @@ button,
 	align-items: center;
 	background: #fff;
 	cursor: default;
-	height: 8em;
 	left: 0;
-	line-height: 4em;
 	top: 0;
 	width: 100%;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.075);
@@ -255,6 +269,7 @@ button,
 	font-family: "Montserrat", sans-serif;
 	font-size:18px;
 	text-align: center;
+	padding-bottom: 8px;
 }
 @media screen and (max-width: 1280px) {
     .sub-header {
