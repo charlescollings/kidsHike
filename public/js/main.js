@@ -11,22 +11,18 @@ var locations = [
 ];
 
 function pageLoad() {
-    for (var i=0; i <= locations.length; i++) {
-        console.log(locations[i][0])
+    for (var i=0; i < locations.length; i++) {
         $("#hikes-text").append("<div class='hikes-text-info'><span class='icon fas fa-tree'></span>&nbsp;" + locations[i][0] + "<div class='trail-sub-text'><a class='ghost-link' href=javascript:showHikeMarker(" + locations[i][1] + "," + locations[i][2] + ")>View on map</a><a class='ghost-link' target='_blank' href=" + locations[i][3] + ">Get more info</a><a class='ghost-link' target='_blank' href=" + locations[i][4] + ">See trail map</a><br></div></div>");
     }
-}
+};
 
 pageLoad();
 
 function showHikeMarker(latitude, longitude) {
-      // The location of Uluru
-  var uluru = {lat: latitude, lng: longitude}; // uluru should = loc lat and long of clicked hike
-  // The map, centered at Uluru
+  var clickedHike = {lat: latitude, lng: longitude};
   var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 10, center: uluru});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: uluru, map: map});
+      document.getElementById('map'), {zoom: 10, center: clickedHike});
+  var marker = new google.maps.Marker({position: clickedHike, map: map});
 }
 
 var kidsHikeMap = $("#kidsHikesMap");
@@ -36,12 +32,43 @@ $(kidsHikeMap).on("submit", initMap);
 $(forestPresMap).on("submit", renderForestPresMap);
 
 function renderForestPresMap() {
-    var uluru = {lat: 27.56, lng: -80}; // uluru should = loc lat and long of clicked hike
-    // The map, centered at Uluru
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 10, center: uluru});
-    // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
+    $.ajax({
+        url: "/api/locations/preserves",
+        method: "GET"
+      }).then(function(response) {
+            let preserves = response.features;
+            var infowindow = new google.maps.InfoWindow();
+            var marker, i
+            var centerSpot = {lat: 41.8163563, lng: -88.0691635};
+            // The map, centered at centrerSpot
+            var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 8, center: centerSpot});
+
+                // var image = {
+                //     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                //     // This marker is 20 pixels wide by 32 pixels high.
+                //     size: new google.maps.Size(20, 32),
+                //     // The origin for this image is (0, 0).
+                //     origin: new google.maps.Point(0, 0),
+                //     // The anchor for this image is the base of the flagpole at (0, 32).
+                //     anchor: new google.maps.Point(0, 32)
+                //   };
+                
+            // The markers, positioned at all fores preserves
+            for (i = 0; i < preserves.length; i++) {   
+                marker = new google.maps.Marker({
+                  position: new google.maps.LatLng(preserves[i].geometry.coordinates[1], preserves[i].geometry.coordinates[0]),
+                  map: map,
+                  // icon: image
+                });
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                  return function() {
+                    infowindow.setContent(preserves[i].properties.name);
+                    infowindow.open(map, marker);
+                  }
+                })(marker, i));
+            }
+    });
 };
 
 
@@ -49,14 +76,12 @@ function renderForestPresMap() {
 function initMap() {
     var marker;
 
+    // The location to center map
+    var centerSpot = {lat: locations[3][1], lng: locations[3][2]};
 
-    // The location of Uluru
-    var uluru = {lat: locations[3][1], lng: locations[3][2]};
-
-    // The map, centered at Uluru
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 8, center: uluru});
-    // The marker, positioned at Uluru
+        document.getElementById('map'), {zoom: 8, center: centerSpot});
+    
     for (i = 0; i < locations.length; i++) {  
         marker = new google.maps.Marker({
           position: new google.maps.LatLng(locations[i][1], locations[i][2]),
@@ -123,20 +148,22 @@ function initMap() {
       };
       console.log(newHiker);
       submitRSVP(newHiker);    
-  }
+    };
 
   function submitRSVP(hikerInfo) {
       $.post("/api/hikers", hikerInfo, function() {
         getHikers();
       });
-  }
+    };
 
   function getHikers() {
       $.get("/api/hikers", renderHikerList);
-  }
+    };
   // show message that hiker has successfully RSVP'd
 
   function renderHikerList(hikerData) {
       console.log(hikerData);
       $("#hikerDisplay").append(hikerData[0]); 
-  }
+    };
+
+ 

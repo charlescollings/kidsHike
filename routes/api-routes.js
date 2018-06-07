@@ -5,6 +5,11 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
+  app.get("/api/locations/preserves", function(req, res) {
+    let preserves = require("../data/data.json")
+    res.json(preserves);
+  });
+
   // GET route for getting all of the posts
   // Add sequelize code to get all books and return them as JSON
   app.get("/api/hikers", function(req, res) {
