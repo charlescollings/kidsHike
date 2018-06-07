@@ -53,7 +53,7 @@ function renderForestPresMap() {
                 //     // The anchor for this image is the base of the flagpole at (0, 32).
                 //     anchor: new google.maps.Point(0, 32)
                 //   };
-                
+
             // The markers, positioned at all fores preserves
             for (i = 0; i < preserves.length; i++) {   
                 marker = new google.maps.Marker({
@@ -74,7 +74,8 @@ function renderForestPresMap() {
 
 
 function initMap() {
-    var marker;
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i
 
     // The location to center map
     var centerSpot = {lat: locations[3][1], lng: locations[3][2]};
