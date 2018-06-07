@@ -1,6 +1,10 @@
 @charset "UTF-8";
 @import "https://fonts.googleapis.com/css?family=Montserrat:700|Open+Sans:300,400|Pacifico";
 
+.smaller-text {
+	font-weight: bold;
+
+}
 /* Map */
 #map {
     height: 150px;
@@ -14,13 +18,15 @@
 .forest-preserve {
 	text-align: center;
 	color: #3f3931;
-	font-weight: bold;
 	font-size: 20px;
 	text-align: center;
+	font-family: "Montserrat", sans-serif;
 }
 .forest-preserve-sub {
 	color: #3f3931;
 	font-size: 14px;
+	padding: 5px 0px 10px 0px;
+	font-family: "Montserrat", sans-serif;
 }
 
 /* Top Kids Hike Section */
@@ -45,10 +51,11 @@
 }
 .subset-text {
 	color: #3f3931;
+	font-size: 18px;
 	font-weight: bold;
-	font-size: 20px;
 	padding: 20px 0px 15px 0px;
 	text-align: center;
+	font-family: "Montserrat", sans-serif;
 }
 .hikes-text {
 	color: #3f3931;
@@ -125,20 +132,21 @@ body, input, select, textarea {
 
 /* The three boxes */
 .box {
-	border-radius: 4px;
-	border: solid 1px #697973;
 	margin-bottom: 2em;
-	overflow: hidden;
+	overflow-y: scroll;
+	height:450px;	
+	width: 500px;
 }
+
 .box .content {
 	padding: 1.5em;
 	color: #697973;
 	text-align: center;
+	
 }
 
 /* List */
 ul.actions li {
-	padding: 1em 0 0 0;
 	display: block;
 	text-align: center;
 	width: 100%;
@@ -208,14 +216,12 @@ button,
 
 /* Wrapper */
 .wrapper {
-	padding: 6em 0 4em 0;
+	padding: 2em 0 4em 0;
 	background-color: #e5dace;
 }
 
 /* Header */
-body {
-	padding-top: 5em;
-}
+
 #header {
 	-moz-align-items: center;
 	-webkit-align-items: center;
@@ -223,13 +229,11 @@ body {
 	align-items: center;
 	background: #fff;
 	cursor: default;
-	height: 6em;
+	height: 8em;
 	left: 0;
-	line-height: 5em;
-	position: fixed;
+	line-height: 4em;
 	top: 0;
 	width: 100%;
-	z-index: 10001;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.075);
 	text-align: center;
 	background-color: #b2b2a2;
@@ -239,11 +243,10 @@ body {
 #header .logo {
 	color: #3f3931;
 	font-family: "Pacifico", cursive;
-	font-size: 2em;
+	font-size: 2.5em;
 	letter-spacing: 2px;
-	margin-top: -5px;
+	padding: 15px 0px 0px 0px;
 	text-decoration: none;
-	padding:0px 0px 40px 0px;
 	text-align: center;
 }
 
@@ -251,11 +254,6 @@ body {
 	color: #3f3931;
 	font-family: "Montserrat", sans-serif;
 	font-size:18px;
-    padding: 35px;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 10001;
 	text-align: center;
 }
 @media screen and (max-width: 1280px) {
