@@ -7,7 +7,13 @@ var locations = [
     ['Morton Arboretum', 41.8163563, -88.0691635, "http://www.mortonarb.org/ ", "http://www.mortonarb.org/files/16MRK_HikingMap_112116_OPTIM.pdf"],
     ['Shabbona State Park', 41.759148, -88.8699532, "https://shabbonalake.com/ ", "http://shabbonalake.com/"],
     ['Maple Grove', 41.7946368, -88.02769380000001, "http://www.dupageforest.org/places-to-go/forest-preserves/maple-grove ", "https://cdn2.hubspot.net/hubfs/2920355/Places-to-Go/Documents/Forest-Preserves/Maple-Grove-Trails-Guide-2017.pdf?t=1528217538568"],
-    ['Waterfall Glen Forest Preserve', 41.7505384, -87.9758569, "http://www.dupageforest.org/places-to-go/forest-preserves/waterfall-glen ", "https://www.dupageforest.org/hubfs/Places-to-Go/Documents/Forest-Preserves/Waterfall-Glen-Trails-Guide-2017.pdf?t=1527873634916"]
+    ['Waterfall Glen Forest Preserve', 41.7505384, -87.9758569, "http://www.dupageforest.org/places-to-go/forest-preserves/waterfall-glen ", "https://www.dupageforest.org/hubfs/Places-to-Go/Documents/Forest-Preserves/Waterfall-Glen-Trails-Guide-2017.pdf?t=1527873634916"],
+    ['Mary Mix McDonald Woods', 42.1524212, -87.77867090000001, "https://www.chicagobotanic.org/gardens/mcdonaldwoods ", "https://www.chicagobotanic.org/walk/tours#tours/map/13"],
+    ['Harms Woods', 42.0672578, -87.77150110000002, "http://fpdcc.com/harms-woods/ ", "https://map.fpdcc.com/#/?search=harms"],
+    ['Crabtree Nature Center', 42.1103167, -88.16070439999999, "http://fpdcc.com/nature-centers/crabtree-nature-center/ ", "http://fpdcc.com/downloads/maps/nature-centers/english/FPCC-Crabtree-Nature-Center-Map-4-17.pdf"],
+    ['Ryerson Woods', 42.18163, -87.91497809999998, "https://www.lcfpd.org/ryerson/ ", "https://maps.lakecountyil.gov/trailmap/?&extent=-9787719.5845%2C5185043.3545%2C-9784767.2043%2C5189811.1142%2C102100"],
+    ['Busse Woods', 42.0338661, -88.02348689999997, "http://fpdcc.com/busse-woods/ ", "http://fpdcc.com/downloads/maps/trails/english/FPCC-Busse-Trail-Map-9-16.pdf"],
+
 ];
 
 function pageLoad() {
@@ -44,6 +50,7 @@ function renderForestPresMap() {
             var map = new google.maps.Map(
                 document.getElementById('map'), {zoom: 8, center: centerSpot});
 
+            // this code makes the markers customizable, is used with the "icon: image" in the marker
                 // var image = {
                 //     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
                 //     // This marker is 20 pixels wide by 32 pixels high.
@@ -77,7 +84,6 @@ function initMap() {
     var infowindow = new google.maps.InfoWindow();
     var marker, i
 
-    // The location to center map
     var centerSpot = {lat: locations[3][1], lng: locations[3][2]};
 
     var map = new google.maps.Map(
@@ -99,10 +105,9 @@ function initMap() {
   }
 
 
-
+// this is a different api that could be used
 //function showMap() {
 //
-//	// Querying the bandsintown api for the selected artist, the ?app_id parameter is required, but can equal anything
 //	var queryURL = "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200280920-62ec1f09ac521aa8e117ab800e4cda97";
 //	$.ajax({
 //	  url: queryURL,
@@ -162,9 +167,9 @@ function initMap() {
     };
   // show message that hiker has successfully RSVP'd
 
-  function renderHikerList(hikerData) {
-      console.log(hikerData);
-      $("#hikerDisplay").append(hikerData[0]); 
-    };
+  // function renderHikerList(hikerData) {
+  //     console.log(hikerData);
+  //     $("#hikerDisplay").append(hikerData[0]); 
+  //   };
 
  

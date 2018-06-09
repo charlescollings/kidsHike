@@ -264,6 +264,16 @@ button,
 	text-align: center;
 }
 
+#footer .logo {
+	color: #3f3931;
+	font-family: "Pacifico", cursive;
+	font-size: 1.5em;
+	letter-spacing: 2px;
+	padding: 15px 0px 0px 0px;
+	text-decoration: none;
+	text-align: center;
+}
+
 .sub-header {
 	color: #3f3931;
 	font-family: "Montserrat", sans-serif;
@@ -289,7 +299,7 @@ button,
 
 /* Footer */
 #footer {
-	padding: 3em 0 2em 0;
+	padding: .25em 0 2em 0;
 	text-align: center;
 	color: #3f3931;
 	background-color: #b2b2a2;
