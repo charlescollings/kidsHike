@@ -1,5 +1,5 @@
 
-// this is our hike data
+// hike data
 var locations = [
     ['Fullersburg Woods', 41.8266548, -87.93220009999999, "http://www.dupageforest.org/places-to-go/forest-preserves/fullersburg-woods " , "https://cdn2.hubspot.net/hubfs/2920355/Places-to-Go/Documents/Forest-Preserves/Fullersburg-Woods-Trails-Guide-2017.pdf?t=1528217538568"],
     ['Little Red School House Nature Center', 41.7089669, -87.87716069999999, "http://fpdcc.com/nature-centers/little-red-schoolhouse-nature-center/ ", "https://map.fpdcc.com/#/?poi=319-Little+Red+Schoolhouse+Nature+Center"],
@@ -46,27 +46,14 @@ function renderForestPresMap() {
             var infowindow = new google.maps.InfoWindow();
             var marker, i
             var centerSpot = {lat: 41.8163563, lng: -88.0691635};
-            // The map, centered at centrerSpot
             var map = new google.maps.Map(
                 document.getElementById('map'), {zoom: 8, center: centerSpot});
 
-            // this code makes the markers customizable, is used with the "icon: image" in the marker
-                // var image = {
-                //     url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                //     // This marker is 20 pixels wide by 32 pixels high.
-                //     size: new google.maps.Size(20, 32),
-                //     // The origin for this image is (0, 0).
-                //     origin: new google.maps.Point(0, 0),
-                //     // The anchor for this image is the base of the flagpole at (0, 32).
-                //     anchor: new google.maps.Point(0, 32)
-                //   };
-
-            // The markers, positioned at all fores preserves
             for (i = 0; i < preserves.length; i++) {   
                 marker = new google.maps.Marker({
                   position: new google.maps.LatLng(preserves[i].geometry.coordinates[1], preserves[i].geometry.coordinates[0]),
                   map: map,
-                  // icon: image
+
                 });
                 google.maps.event.addListener(marker, 'click', (function(marker, i) {
                   return function() {
@@ -78,14 +65,10 @@ function renderForestPresMap() {
     });
 };
 
-
-
 function initMap() {
     var infowindow = new google.maps.InfoWindow();
     var marker, i
-
     var centerSpot = {lat: locations[3][1], lng: locations[3][2]};
-
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 8, center: centerSpot});
     
@@ -102,74 +85,51 @@ function initMap() {
           }
         })(marker, i));
     }
-  }
-
-
-// this is a different api that could be used
-//function showMap() {
-//
-//	var queryURL = "https://www.hikingproject.com/data/get-trails?lat=40.0274&lon=-105.2519&maxDistance=10&key=200280920-62ec1f09ac521aa8e117ab800e4cda97";
-//	$.ajax({
-//	  url: queryURL,
-//	  method: "GET"
-//	}).then(function(response) {
-// 
-//	  // Printing the entire object to console
-//	  console.log(response);
-// 
-//	  // Empty the contents of the artist-div, append the new artist content
-//	  $("#map").append(response);
-//	});
-//  }
-//
-//  showMap();
-
+}
 
 //CONTACT FORM FOR HIKER RSVP//
-  var hikerNameInput = $("#hikerName");
-  var numberOfHikersInput = $("#numberOfHikers");
-  var hikerEmailInput = $("#hikerEmail");
+var hikerNameInput = $("#hikerName");
+var numberOfHikersInput = $("#numberOfHikers");
+var hikerEmailInput = $("#hikerEmail");
+var submitRSVPForm = $("#submitRSVP");
+var modal = document.getElementById('myModal');
+var span = document.getElementsByClassName("close")[0];
 
-  var submitRSVPForm = $("#submitRSVP");
+$(submitRSVPForm).on("submit", handleSubmitRSVP);
+$(span).on("click", closeModal);
 
-  $(submitRSVPForm).on("submit", handleSubmitRSVP);
+function handleSubmitRSVP(event) {
+    event.preventDefault();
+    if (!hikerNameInput.val().trim()) {
+      return;
+    }
 
-  function handleSubmitRSVP(event) {
-      event.preventDefault();
-      console.log("button clicked")
-      // Wont submit the post if we are missing a body, title, or author
-      if (!hikerNameInput.val().trim()) {
-        return;
-      }
-      // Constructing a newPost object to hand to the database
-      var newHiker = {
-          hikerName: hikerNameInput
-              .val()
-              .trim(),
-          numberOfHikers: parseInt(numberOfHikersInput.val()),
-              
-          hikerEmail: hikerEmailInput
-              .val()
-              .trim()
-      };
-      console.log(newHiker);
-      submitRSVP(newHiker);    
+    var newHiker = {
+        hikerName: hikerNameInput
+            .val()
+            .trim(),
+        numberOfHikers: parseInt(numberOfHikersInput.val()),
+            
+        hikerEmail: hikerEmailInput
+            .val()
+            .trim()
     };
 
-  function submitRSVP(hikerInfo) {
-      $.post("/api/hikers", hikerInfo, function() {
-        getHikers();
-      });
-    };
+    submitRSVP(newHiker);
+    showConfirm();    
+};
 
-  function getHikers() {
-      $.get("/api/hikers", renderHikerList);
-    };
-  // show message that hiker has successfully RSVP'd
+function submitRSVP(hikerInfo) {
+    $.post("/api/hikers", hikerInfo);
+  };
 
-  // function renderHikerList(hikerData) {
-  //     console.log(hikerData);
-  //     $("#hikerDisplay").append(hikerData[0]); 
-  //   };
+function showConfirm() {
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
 
  
